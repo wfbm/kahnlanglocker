@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Khan LangKeeper",
+  "$schema": "https://json.schemastore.org/chrome-manifest.json",
+  "version": "0.1.0",
+  "description": "set khan to your language of preference",
+  "action": {
+    "default_title": "Khan LangKeeper",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.khanacademy.org/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://www.khanacademy.org/*"
+      ],
+      "resources": [
+        "utils.js"
+      ]
+    }
+  ]
+}
